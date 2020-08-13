@@ -18,6 +18,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
 
     private HomeViewModel mHomeViewModel;
     private ActivityHomeBinding mActivityHomeBinding;
+    public static int score = 0;
+    public static HomeActivity homeActivity = null;
 
     @Inject
     ViewModelProviderFactory factory;
@@ -45,6 +47,14 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         mHomeViewModel.setNavigator(this);
     }
 
+    public HomeActivity() {
+        homeActivity = this;
+    }
+
+    public static HomeActivity getHomeActivity() {
+        return homeActivity;
+    }
+
     @Override
     public void bestScore(int bestScore) {
         Log.i("SCORE:: BEST",String.valueOf(bestScore));
@@ -61,7 +71,22 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     public void startNewGame() {
         Log.i("SCORE:: NEW GAME","New game begin");
         GameView.startGame();
-        //mActivityHomeBinding.gameView.startGame();
+    }
+
+    public void clearScore() {
+        score = 0;
+        showScore();
+    }
+
+    public void showScore() {
+        mActivityHomeBinding.txtScore.setText(score + "");
+    }
+
+    public void addScore(int i) {
+
+        score += i;
+        showScore();
+        mActivityHomeBinding.txtMaxScore.setText(String.valueOf(score));
 
     }
 }

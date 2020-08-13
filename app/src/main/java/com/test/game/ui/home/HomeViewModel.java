@@ -1,5 +1,4 @@
 package com.test.game.ui.home;
-import com.test.game.ui.Card;
 import com.test.game.ui.base.BaseViewModel;
 
 public class HomeViewModel extends BaseViewModel<com.test.game.ui.home.HomeNavigator> {

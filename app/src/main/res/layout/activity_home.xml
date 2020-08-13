@@ -10,21 +10,10 @@
             type="com.test.game.ui.home.HomeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.test.game.ui.GameView
-            android:id="@+id/gameView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topPanel" />
 
         <LinearLayout
             android:id="@+id/topPanel"
@@ -131,7 +120,22 @@
                 android:textColor="@color/colorWhite"/>
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <com.test.game.ui.GameView
+            android:id="@+id/gameView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="5dp"
+            android:layout_below="@+id/topPanel"
+            android:layout_above="@+id/bottomPanel"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topPanel" />
+
+    </RelativeLayout>
 
 </layout>
